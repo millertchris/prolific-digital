@@ -1,65 +1,76 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import TypeIt from "typeit-react"
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <main>
+      <header>
+        <div className="wrapper">
+          <div className="row">
+            <a href="/"><img src="/logo.svg" alt="Prolific Digital"/></a>
+            <nav>
+              <ul>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#" className="btn">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      </header>
+      <div className="block hero style-1">
+        <div className="wrapper">
+          <div className="row">
+            <div className="col">
+              <h1 class="title"><div>We create</div> 
+              
+                <div class="slash">
+                  <TypeIt
+                    getBeforeInit={instance => {
+                      instance
+                        .type("interactive")
+                        .pause(600)
+                        .delete(11)
+                        .type("bespoke")
+                        .pause(600)
+                        .delete(7)
+                        .type("reactive")
+                        .pause(600)
+                        .delete(8)
+                        .type("engaging")
+                        .pause(600)
+                        .delete(8)
+                        .type("intentional")
+                        .pause(600)
+                        .delete(11)
+                        .type("fun")
+                        .pause(600)
+                        .delete(3)
+                        .type("lovely")
+                        .pause(600)
+                        .delete(6)
+                        .pause(600)
+                        .type("interactive")
+                      // Remember to return it!
+                      return instance;
+                    }}
+                    options={{
+                      cursor: false,
+                      waitUntilVisible: true,
+                      loop: false
+                    }}>
+                  </TypeIt>
+                </div> 
+                
+                <div>expereinces.</div>
+        
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   )
 }
