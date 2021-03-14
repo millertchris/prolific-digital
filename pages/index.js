@@ -1,8 +1,62 @@
+import { useRef, useEffect } from "react";
 import Head from 'next/head'
 import TypeIt from "typeit-react"
 import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+
+  useEffect(() => {
+    
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".slide-1",
+        start: "center center",
+        end: () => innerHeight * 0.5,
+        scrub: true,
+        pin: ".slide-1",
+        anticipatePin: 1,
+      },
+    })
+      .from(".slide-1", {
+        scale: 1,
+        ease: "none",
+      })
+
+      // .set(".slide-1", { autoAlpha: 1, scale: 1 })
+      // .to(".slide-1", { duration: 0.1, autoAlpha: 1 }, 0.001)
+      .to(".slide-1", {
+        scale: 10,
+        ease: "none",
+      });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".slide-2",
+          start: "center center",
+          end: () => innerHeight * 4,
+          scrub: true,
+          pin: ".slide-2",
+          anticipatePin: 1,
+        },
+      })
+        .from(".slide-2", {
+          scale: 1,
+          ease: "none",
+        })
+  
+        // .set(".slide-2", { autoAlpha: 1, scale: 1 })
+        // .to(".slide-2", { duration: 0.1, autoAlpha: 1 }, 0.001)
+        .to(".slide-2", {
+          scale: 10,
+          ease: "none",
+        });
+
+  }, []);
+
   return (
     <main>
       <header>
@@ -21,7 +75,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <div className="block hero style-1">
+      <div className="block hero style-1 slide-1">
         <div className="wrapper">
           <div className="row">
             <div className="col">
@@ -43,7 +97,7 @@ export default function Home() {
                           .type("bespoke")
                           .pause(600)
                           .delete(7)
-                          .type("accessibile")
+                          .type("accessible")
                           .pause(600)
                           .delete(11)
                           .type("reactive")
@@ -88,7 +142,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="block hero style-2 content-right">
+      <div className="block hero style-2 content-right slide-2">
         <div className="shape">
           <img src="/shapes.jpg" alt="Placeholder"/>
         </div>
@@ -105,7 +159,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="block hero style-2 content-left">
+      {/* <div className="block hero style-2 content-left">
         <div className="shape">
           <img src="/shapes.jpg" alt="Placeholder"/>
         </div>
@@ -119,7 +173,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
     </main>
   )
