@@ -11,8 +11,6 @@ gsap.registerPlugin(DrawSVGPlugin);
 
 export default function Home() {
 
-
-
   useEffect(() => {
 
     function LottieScrollTrigger(vars) {
@@ -41,66 +39,103 @@ export default function Home() {
     }
 
     LottieScrollTrigger({
-      target: ".slide-2 .shape",
+      target: "#slide-2 .shape",
       path: "https://assets10.lottiefiles.com/private_files/lf30_ppr0ovoc.json",
-      speed: "medium",
+      speed: "slow",
       scrub: 2, // seconds it takes for the playhead to "catch up"
       // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
     });
 
     LottieScrollTrigger({
-      target: ".slide-3 .shape",
-      path: "https://assets10.lottiefiles.com/private_files/lf30_kruepo7c.json",
-      speed: "medium",
+      target: "#slide-4 .shape",
+      path: "https://assets10.lottiefiles.com/private_files/lf30_vkkbcx4r.json",
+      speed: "slow",
       scrub: 2, // seconds it takes for the playhead to "catch up"
       // start: "top top",
       // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
     });
 
-    LottieScrollTrigger({
-      target: ".slide-4 .shape",
-      path: "https://assets10.lottiefiles.com/private_files/lf30_kruepo7c.json",
-      speed: "medium",
-      scrub: 2, // seconds it takes for the playhead to "catch up"
-      // start: "top top",
-      // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
-    });
+    // LottieScrollTrigger({
+    //   target: ".slide-4 .shape",
+    //   path: "https://assets10.lottiefiles.com/private_files/lf30_kruepo7c.json",
+    //   speed: "medium",
+    //   scrub: 2, // seconds it takes for the playhead to "catch up"
+    //   // start: "top top",
+    //   // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
+    // });
    
-    
-    var tl = gsap.timeline({
+    var tlone = gsap.timeline({
       scrollTrigger: {
-        trigger: "main",
+        trigger: "#slide-1",
         start: "top top",
-        end: () => innerHeight * 1,
+        end: () => "bottom top",
+        // end: () => innerHeight * 1,
         scrub: true,
         pin: true,
-        anticipatePin: 1,
+        pinSpacing: false,
+        markers: true,
       },
     })
 
-    tl.to(".slide-1", { scale: 0, autoAlpha: 0, ease: "power2" })
+    var tltwo = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#slide-2",
+        start: "center center",
+        end: () => "+=2000",
+        scrub: true,
+        pin: true,
+        markers: true,
+      },
+    })
 
-    tl.fromTo(".slide-2 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" }, "-=0.3")
-
-    tl.fromTo(".slide-2 .content", { autoAlpha: 0 }, { y: "0", autoAlpha: 1, ease: "power2" }, "-=0.5")
-
-    tl.fromTo(".slide-2 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2", delay: 2.5 })
-
-    tl.fromTo(".slide-2 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" }, "-=0.5")
-
-    tl.fromTo(".slide-3 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-
-    tl.fromTo(".slide-3 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
-
-    tl.fromTo(".slide-3 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
-
-    tl.fromTo(".slide-3 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+    var tlthree = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#slide-3",
+        start: "center center",
+        end: () => "+=3000",
+        // end: () => innerHeight * 2,
+        scrub: true,
+        pin: true,
+        markers: true,
+      },
+    })
     
-    tl.fromTo(".slide-4 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    var tlfour = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#slide-4",
+        start: "center center",
+        // end: () => innerHeight * 1.5,
+        scrub: true,
+        pin: true,
+        markers: true,
+      },
+    })
 
-    tl.fromTo(".slide-4 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
+    tlone.to("#slide-1", { scale: 0, autoAlpha: 0, ease: "power2" })
 
+    tltwo.fromTo("#slide-2 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    tltwo.fromTo("#slide-2 .content", { autoAlpha: 0 }, { y: "0", autoAlpha: 1, ease: "power2" })
+    tltwo.to("#slide-2 .shape", { autoAlpha: 0, ease: "power2" })
+    tltwo.to("#slide-2 .content", { autoAlpha: 0, ease: "power2" })
 
+    tlthree.fromTo("#slide-3 #item-1", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #item-2", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #item-3", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-1", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-2", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-3", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-4", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-5", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 #word-6", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+    tlthree.fromTo("#slide-3 .btn", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    
+    tlthree.to("#slide-3 .row", { autoAlpha: 0, ease: "power2" })
+
+    tlfour.fromTo("#slide-4 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+    tlfour.fromTo("#slide-4 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
+    // tlthree.to("#slide-4 .row", { autoAlpha: 0, ease: "power2" })
+    // tlfour.fromTo("#slide-4 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+    // tlfour.fromTo("#slide-4 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
 
     // new stuff
     // Need to add strokes to all of the shapes, may need path.
@@ -114,8 +149,8 @@ export default function Home() {
         <script type="text/javascript" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js" integrity="sha512-HDCfX3BneBQMfloBfluMQe6yio+OfXnbKAbI0SnfcZ4YfZL670nc52Aue1bBhgXa+QdWsBdhMVR2hYROljf+Fg==" crossorigin="anonymous"></script>
       </Head>
-      <main>
-        <header>
+      
+      <header>
           <div className="wrapper">
             <div className="row">
               <a href="/"><img src="/logo.svg" alt="Prolific Digital"/></a>
@@ -131,7 +166,8 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <div className="block hero style-1 slide slide-1">
+      <main>
+        <div id="slide-1" className="block hero style-1 slide">
           <div className="wrapper">
             <div className="row">
               <div className="col">
@@ -198,7 +234,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="block hero style-2 content-right slide slide-2">
+        <div id="slide-2" className="block hero style-2 content-right slide">
           <div className="shape"></div>
           <div className="wrapper">
             <div className="row">
@@ -213,7 +249,57 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="block hero style-2 content-left slide slide-3">
+        <div id="slide-3" className="block carousel style-1 slide">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col">
+                <div className="content">
+                    <h2 className="title"><span id="word-1">We</span> <span id="word-2">rather</span> <span id="word-3">show</span> <span id="word-4">than</span> <span id="word-5">tell</span><span id="word-6">.</span></h2>
+                </div>
+                <div className="carousel">
+                  <div id="item-1" className="item">
+                    <a href="#">
+                      <div className="image">
+                        <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
+                      </div>
+                      <div className="details">
+                        <h2 className="title">Project Title</h2>
+                        <div className="type">Website</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div id="item-2" className="item">
+                    <a href="#">
+                      <div className="image">
+                        <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
+                      </div>
+                      <div className="details">
+                        <h2 className="title">Project Title</h2>
+                        <div className="type">Website</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div id="item-3" className="item">
+                    <a href="#">
+                      <div className="image">
+                        <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
+                      </div>
+                      <div className="details">
+                        <h2 className="title">Project Title</h2>
+                        <div className="type">Website</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div className="content">
+                  <a href="#" className="btn">View portfolio</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="slide-4" className="block hero style-2 content-left slide">
           <div className="shape"></div>
           <div className="wrapper">
             <div className="row">
@@ -227,14 +313,23 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="block hero style-2 content-left slide slide-4">
-          <div className="shape"></div>
+        <div id="slide-5" className="block contact slide">
           <div className="wrapper">
             <div className="row">
               <div className="col">
                 <div className="content">
-                    <h2 className="title">Undying curiosity. <span className="color-pop">Unwavering quality.</span></h2>
-                    <p>We work tirelessly with our clients to ensure a great experience from idea to holy-moly-that’s-freaking-awesome!</p>
+                    <h2 className="title">You have a story to tell. <span className="color-pop">Let's share it.</span></h2>
+                    <form action="#">
+                      <div>
+                        <input type="text" name="name" />
+                      </div>
+                      <div>
+                        <input type="text" name="email" />
+                      </div>
+                      <div>
+                        <textarea name="message" id="" cols="30" rows="2"></textarea>
+                      </div>
+                    </form>
                 </div>
               </div>
             </div>
