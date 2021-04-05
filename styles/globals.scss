@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, textarea {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: #131313;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+$primary-color: #89FFE7;

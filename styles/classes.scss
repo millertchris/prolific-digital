@@ -1,0 +1,16 @@
+.slash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary-color;
+    &:before {
+        content: '/';
+        font-size: 0.68em;
+        font-weight: 900;
+        margin-right: 20px;
+    }
+  }
+  
+  .color-pop {
+    color: $primary-color;
+  }
