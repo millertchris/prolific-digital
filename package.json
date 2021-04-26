@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@animated-burgers/burger-slip": "^1.1.2",
     "@lottiefiles/lottie-player": "^0.5.1",
+    "classnames": "^2.2.6",
     "flickity": "^2.2.2",
     "gsap": "npm:@gsap/shockingly@^3.6.0",
     "lottie-web": "^5.7.7",
