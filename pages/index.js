@@ -330,9 +330,7 @@ export default function Home() {
                     </Tween>
 
                     <Tween from={{ opacity: 0, scale: 0.5 }} to={{ opacity: 1, scale: 1 }} duration={4} delay={0.6} ease="expo(1.7)">
-                    
                       <div>experiences.</div>
-
                     </Tween>
             
                   </h1>
