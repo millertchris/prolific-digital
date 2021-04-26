@@ -9,6 +9,8 @@
 @import 'blocks/carousel.scss';
 @import 'blocks/hero.scss';
 
+@import '../node_modules/flickity/dist/flickity.css';
+
 img {
     max-width: 100%;
 }

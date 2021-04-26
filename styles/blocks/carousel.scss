@@ -2,48 +2,60 @@
     position: relative;
     padding: 40px 0;
     z-index: 10;
+    .wrapper {
+        padding: 0 30px;
+    }
     .content {
         margin: auto;
         text-align: center;
         .title {
             margin: 0;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
     }
     .carousel {
-        display: flex;
-        justify-content: space-between;
-        // max-width: 900px;
-        margin: auto;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
         .item {
-            position: relative;
-            overflow: hidden;
-        }
-        .details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-            transform: translateY(200px);
-            background: rgba(111, 209, 189, 0.8);
-            transition: 600ms all ease-in-out;
-        }
-        a {
             display: block;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 400px;
+            margin: 0 20px;
+            overflow: hidden;
+            @media screen and (max-width: 720px) {
+                height: auto;
+            }
             &:hover {
                 .details {
                     transform: translateY(0);
                 }
             }
         }
+        .details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10px;
+            backdrop-filter: blur(10px);
+            transform: translateY(200px);
+            background: rgba(255, 255, 255, 0.5);
+            transition: 600ms all ease-in-out;
+            @media screen and (max-width: 720px) {
+                // position: relative;
+                transform: translateY(0);
+                // color: #fff;
+                background: transparent;
+            }
+        }
         .image {
             width: 100%;
-            max-width: 300px;
-            height: 400px;
+            height: 100%;
             overflow: hidden;
+            @media screen and (max-width: 720px) {
+                height: 380px;
+            }
             img {
                 object-fit: cover;
                 object-position: center;
@@ -69,5 +81,22 @@
     }
     .subtitle {
         font-size: 2em;
+    }
+    .flickity-page-dots .dot {
+        background-color: #fff;
+    }
+    .flickity-button {
+        padding: 0;
+        color: #fff;
+        background: transparent;
+        &:before {
+            display: none;
+        }
+    }
+    button.next {
+        right: -40px;
+    }
+    button.previous {
+        left: -40px;
     }
 }

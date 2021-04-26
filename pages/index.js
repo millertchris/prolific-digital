@@ -7,12 +7,24 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin";
 
+import Flickity from 'react-flickity-component';
+
+const flickityOptions = {
+    wrapAround: true,
+    accessibility: true,
+    cellAlign: 'center'
+}
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(DrawSVGPlugin);
 
 export default function Home() {
 
   useEffect(() => {
+
+    // var flkty = new Flickity( '.carousel', {
+    //     // options...
+    // });
 
     function LottieScrollTrigger(vars) {
       let playhead = {frame: 0},
@@ -42,7 +54,7 @@ export default function Home() {
     LottieScrollTrigger({
       target: "#slide-2 .shape",
       path: "https://assets10.lottiefiles.com/private_files/lf30_ppr0ovoc.json",
-      speed: "slow",
+      speed: "medium",
       scrub: 2, // seconds it takes for the playhead to "catch up"
       // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
     });
@@ -66,6 +78,12 @@ export default function Home() {
         pin: true,
         pinSpacing: false,
         // markers: true,
+        // snap: {
+        //   snapTo: 1, // snap to the closest label in the timeline
+        //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        //   ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+        // }
       },
     })
 
@@ -78,6 +96,7 @@ export default function Home() {
         pin: true,
         // pinSpacing: false,
         // markers: true,
+        // snap: 1 / (4 - 1),
       },
     })
 
@@ -90,6 +109,7 @@ export default function Home() {
         scrub: true,
         pin: true,
         // markers: true,
+        // snap: 1 / (10 - 1),
       },
     })
     
@@ -101,6 +121,7 @@ export default function Home() {
         scrub: true,
         pin: true,
         // markers: true,
+        // snap: 1 / (2 - 1),
       },
     })
 
@@ -231,9 +252,16 @@ export default function Home() {
                   <div className="content">
                       <h2 className="title"><span id="word-1">We</span> <span id="word-2">rather</span> <span id="word-3">show</span> <span id="word-4">than</span> <span id="word-5">tell</span><span id="word-6">.</span></h2>
                   </div>
-                  <div className="carousel">
-                    <div id="item-1" className="item">
-                      <a href="#">
+
+                  <Flickity
+                    className={'carousel'} // default ''
+                    elementType={'div'} // default 'div'
+                    options={flickityOptions} // takes flickity options {}
+                    disableImagesLoaded={true} // default false
+                    reloadOnUpdate // default false
+                    static // default false
+                  >
+                      <a href="#" className="item">
                         <div className="image">
                           <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
                         </div>
@@ -242,9 +270,7 @@ export default function Home() {
                           <div className="type">Website</div>
                         </div>
                       </a>
-                    </div>
-                    <div id="item-2" className="item">
-                      <a href="#">
+                      <a href="#" className="item">
                         <div className="image">
                           <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
                         </div>
@@ -253,9 +279,7 @@ export default function Home() {
                           <div className="type">Website</div>
                         </div>
                       </a>
-                    </div>
-                    <div id="item-3" className="item">
-                      <a href="#">
+                      <a href="#" className="item">
                         <div className="image">
                           <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
                         </div>
@@ -264,8 +288,27 @@ export default function Home() {
                           <div className="type">Website</div>
                         </div>
                       </a>
-                    </div>
-                  </div>
+                      <a href="#" className="item">
+                        <div className="image">
+                          <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
+                        </div>
+                        <div className="details">
+                          <h2 className="title">Project Title</h2>
+                          <div className="type">Website</div>
+                        </div>
+                      </a>
+                      <a href="#" className="item">
+                        <div className="image">
+                          <img src="https://source.unsplash.com/random" alt="Placeholder image"/>
+                        </div>
+                        <div className="details">
+                          <h2 className="title">Project Title</h2>
+                          <div className="type">Website</div>
+                        </div>
+                      </a>
+                  </Flickity>
+
+                  
                   <div className="content">
                     <a href="#" className="btn">View portfolio</a>
                   </div>
