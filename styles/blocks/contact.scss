@@ -1,5 +1,8 @@
 .block.contact {
     padding: 200px 0;
+    @media screen and (max-width: 720px) {
+        padding-top: 0;
+    }
     .row {
         display: flex;
         justify-content: center;

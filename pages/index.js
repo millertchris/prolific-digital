@@ -67,96 +67,205 @@ export default function Home() {
       path: "https://assets10.lottiefiles.com/private_files/lf30_vkkbcx4r.json",
       speed: "medium",
       scrub: 2, // seconds it takes for the playhead to "catch up"
-      // start: "top top",
+      start: "top bottom",
       // you can also add ANY ScrollTrigger values here too, like trigger, start, end, onEnter, onLeave, onUpdate, etc. See https://greensock.com/docs/v3/Plugins/ScrollTrigger
     });
-   
-    var tlone = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#slide-1",
-        start: "top top",
-        end: () => "bottom top",
-        // end: () => innerHeight * 1,
-        scrub: true,
-        pin: true,
-        pinSpacing: false,
-        // markers: true,
-        // snap: {
-        //   snapTo: 1, // snap to the closest label in the timeline
-        //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-        //   ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
-        // }
-      },
-    })
 
-    var tltwo = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#slide-2",
-        start: "center center",
-        end: () => "+=2000",
-        scrub: true,
-        pin: true,
-        // pinSpacing: false,
-        // markers: true,
-        // snap: 1 / (4 - 1),
-      },
-    })
+    ScrollTrigger.matchMedia({
+	
+      // desktop
+      "(min-width: 720px)": function() {
+        var tlone = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-1",
+            start: "top top",
+            end: () => "bottom top",
+            // end: () => innerHeight * 1,
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+            // markers: true,
+            // snap: {
+            //   snapTo: 1, // snap to the closest label in the timeline
+            //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+            //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+            //   ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+            // }
+          },
+        })
 
-    var tlthree = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#slide-3",
-        start: "center center",
-        end: () => "+=3000",
-        // end: () => innerHeight * 2,
-        scrub: true,
-        pin: true,
-        // markers: true,
-        // snap: 1 / (10 - 1),
-      },
-    })
+        var tltwo = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-2",
+            start: "center center",
+            end: () => "+=2000",
+            scrub: true,
+            pin: true,
+            // pinSpacing: false,
+            // markers: true,
+            // snap: 1 / (4 - 1),
+          },
+        })
     
-    var tlfour = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#slide-4",
-        start: "center center",
-        // end: () => innerHeight * 1.5,
-        scrub: true,
-        pin: true,
-        // markers: true,
-        // snap: 1 / (2 - 1),
-      },
-    })
+        var tlthree = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-3",
+            start: "center center",
+            end: () => "+=3000",
+            // end: () => innerHeight * 2,
+            scrub: true,
+            pin: true,
+            // markers: true,
+            // snap: 1 / (10 - 1),
+          },
+        })
+        
+        var tlfour = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-4",
+            start: "center center",
+            end: () => "+=3000",
+            scrub: true,
+            pin: true,
+            // markers: true,
+            // snap: 1 / (2 - 1),
+          },
+        })
 
-    tlone.to("#slide-1", { scale: 0, autoAlpha: 0, ease: "power2" })
+        tlone.to("#slide-1", { scale: 0, autoAlpha: 0, ease: "power2" })
 
-    tltwo.fromTo("#slide-2 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tltwo.fromTo("#slide-2 .content", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tltwo.to("#slide-2 .shape", { autoAlpha: 0, ease: "power2" })
-    tltwo.to("#slide-2 .content", { autoAlpha: 0, ease: "power2" })
-
-    tlthree.fromTo("#slide-3 #item-1", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #item-2", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #item-3", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-1", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-2", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-3", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-4", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-5", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 #word-6", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
-    tlthree.fromTo("#slide-3 .btn", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tltwo.fromTo("#slide-2 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tltwo.fromTo("#slide-2 .content", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tltwo.to("#slide-2 .shape", { autoAlpha: 0, ease: "power2" })
+        tltwo.to("#slide-2 .content", { autoAlpha: 0, ease: "power2" })
     
-    tlthree.to("#slide-3 .row", { autoAlpha: 0, ease: "power2" })
+        tlthree.fromTo("#slide-3 .carousel", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        // tlthree.fromTo("#slide-3 #item-2", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        // tlthree.fromTo("#slide-3 #item-3", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-1", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-2", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-3", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-4", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-5", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-6", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 .btn", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        
+        tlthree.to("#slide-3 .row", { autoAlpha: 0, ease: "power2" })
+    
+        tlfour.fromTo("#slide-4 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tlfour.fromTo("#slide-4 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
+        // tlthree.to("#slide-4 .row", { autoAlpha: 0, ease: "power2" })
+        // tlfour.fromTo("#slide-4 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+        // tlfour.fromTo("#slide-4 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+    
+        // new stuff
+        // Need to add strokes to all of the shapes, may need path.
+        // gsap.fromTo("polygon", {drawSVG:"100%"}, {duration: 1, drawSVG:"50% 50%", stagger: 0.1});
+      },
+    
+      // mobile
+      "(min-width: 320px)": function() {
+        
+        // The ScrollTriggers created inside these functions are segregated and get
+        // reverted/killed when the media query doesn't match anymore.
+        var tlone = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-1",
+            start: "top top",
+            end: () => "bottom top",
+            // end: () => innerHeight * 1,
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+            // markers: true,
+            // snap: {
+            //   snapTo: 1, // snap to the closest label in the timeline
+            //   duration: {min: 0.2, max: 3}, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+            //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+            //   ease: "power1.inOut" // the ease of the snap animation ("power3" by default)
+            // }
+          },
+        })
 
-    tlfour.fromTo("#slide-4 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
-    tlfour.fromTo("#slide-4 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
-    // tlthree.to("#slide-4 .row", { autoAlpha: 0, ease: "power2" })
-    // tlfour.fromTo("#slide-4 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
-    // tlfour.fromTo("#slide-4 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+        var tltwo = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-2",
+            start: "center center",
+            end: () => "+=2000",
+            scrub: true,
+            pin: true,
+            // pinSpacing: false,
+            // markers: true,
+            // snap: 1 / (4 - 1),
+          },
+        })
+    
+        var tlthree = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-3",
+            start: "center center",
+            end: () => "+=3000",
+            scrub: true,
+            pin: true,
+            // markers: true,
+            // snap: 1 / (10 - 1),
+          },
+        })
+        
+        var tlfour = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#slide-4",
+            start: "center center",
+            end: () => "+=3000",
+            // end: () => innerHeight * 1.5,
+            scrub: true,
+            pin: true,
+            // markers: true,
+            // snap: 1 / (2 - 1),
+          },
+        })
 
-    // new stuff
-    // Need to add strokes to all of the shapes, may need path.
-    // gsap.fromTo("polygon", {drawSVG:"100%"}, {duration: 1, drawSVG:"50% 50%", stagger: 0.1});
+        tlone.to("#slide-1", { scale: 0, autoAlpha: 0, ease: "power2" })
+
+        tltwo.fromTo("#slide-2 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tltwo.fromTo("#slide-2 .content", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+
+        tltwo.to("#slide-2", { autoAlpha: 0, ease: "power2" })
+        // tltwo.to("#slide-2 .shape", { autoAlpha: 0, ease: "power2" })
+        // tltwo.to("#slide-2 .content", { autoAlpha: 0, ease: "power2" })
+    
+        tlthree.fromTo("#slide-3", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        // tlthree.fromTo("#slide-3 #item-2", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        // tlthree.fromTo("#slide-3 #item-3", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-1", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-2", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-3", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-4", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-5", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 #word-6", { autoAlpha: 0}, { autoAlpha: 1, ease: "power2" })
+        tlthree.fromTo("#slide-3 .btn", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        
+        tlthree.to("#slide-3 .row", { autoAlpha: 0, ease: "power2" })
+    
+        tlfour.fromTo("#slide-4 .shape", { autoAlpha: 0 }, { autoAlpha: 1, ease: "power2" })
+        tlfour.fromTo("#slide-4 .content", { x: "100%", autoAlpha: 0 }, { x: "0", autoAlpha: 1, ease: "power2" })
+        // tlthree.to("#slide-4 .row", { autoAlpha: 0, ease: "power2" })
+        // tlfour.fromTo("#slide-4 .shape", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+        // tlfour.fromTo("#slide-4 .content", { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2" })
+    
+        // new stuff
+        // Need to add strokes to all of the shapes, may need path.
+        // gsap.fromTo("polygon", {drawSVG:"100%"}, {duration: 1, drawSVG:"50% 50%", stagger: 0.1});
+      },
+      
+      // all 
+      "all": function() {
+        // ScrollTriggers created here aren't associated with a particular media query,
+        // so they persist.
+      }
+      
+    }); 
+
 
   }, []);
 

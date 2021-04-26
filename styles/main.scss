@@ -22,6 +22,12 @@ img {
 
 #slide-1 {
     margin-bottom: -70vh;
+    .row {
+        height: 100vh;
+    }
+    @media screen and (max-width: 720px) {
+        margin-bottom: 0;
+    }
 }
 #slide-2 {
     margin-bottom: -130vh;
@@ -31,4 +37,7 @@ img {
 }
 #slide-3 {
     margin-bottom: -90vh;
+    @media screen and (max-width: 720px) {
+        margin-bottom: 0;
+    }
 }
