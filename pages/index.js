@@ -174,6 +174,7 @@ export default function Home() {
                     <Tween from={{ opacity: 0, scale: 0.5 }} to={{ opacity: 1, scale: 1 }} duration={4} delay={0.3} ease="expo(1.7)">
 
                       <div className="slash">
+                        /
                         <TypeIt
                           getBeforeInit={instance => {
                             instance
