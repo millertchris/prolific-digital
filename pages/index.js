@@ -22,9 +22,12 @@ export default function Home() {
 
   useEffect(() => {
 
-    // var flkty = new Flickity( '.carousel', {
-    //     // options...
-    // });
+    const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
+    window.addEventListener('resize', appHeight)
+    appHeight()
 
     function LottieScrollTrigger(vars) {
       let playhead = {frame: 0},
