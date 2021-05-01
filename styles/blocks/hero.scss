@@ -1,23 +1,47 @@
 .block.hero {
-    .row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-        @media screen and (max-width: 720px) {
-            height: 100%;
+
+    &#slide-1 {
+        .title {
+            line-height: 0.8;
+        }
+        .row {
+            height: calc(100vh - 135px);
         }
     }
-    svg {
-        fill: #fff;
-        @media screen and (max-width: 720px) {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+
+    &.style-1,
+    &.style-2,
+    &.style-3 {
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            opacity: 0.1;
+            height: 100vh;
+            @media screen and (max-width: 720px) {
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+            }
+        }
+        .col {
+            @media screen and (max-width: 720px) {
+                width: 100%;
+            }
+            @media screen and (max-width: 640px) {
+                padding: 60px 0;
+            }
+        }
+        svg {
+            fill: #fff;
+            @media screen and (max-width: 720px) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                opacity: 0.1;
+            }
         }
     }
     &.style-1 {
@@ -69,25 +93,36 @@
                 }
             }
         }
+        .title {
+            line-height: 1em;
+        }
+    }
+
+    &.style-3 {
+        svg {
+            > g {
+                > g:nth-child(1) {
+                    > g:nth-child(1) {
+                        > path {
+                            fill: transparent;
+                        }
+                    }
+                }
+            }
+        }
         .row {
             display: flex;
-            align-items: center;
-            @media screen and (max-width: 720px) {
-                justify-content: center;
-                flex-direction: column;
-            }
+            align-items: flex-start;
         }
         .col {
             width: 50%;
+            margin-right: 40px;
             @media screen and (max-width: 720px) {
                 width: 100%;
             }
-            @media screen and (max-width: 640px) {
-                padding: 60px 0;
-            }
         }
         .title {
-            line-height: 1em;
+            font-size: 2em;
         }
     }
 }

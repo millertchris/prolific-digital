@@ -3,6 +3,14 @@
     @media screen and (max-width: 720px) {
         padding-top: 0;
     }
+    &:before {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 200px;
+        margin: auto;
+        background: #fff;
+    }
     .row {
         display: flex;
         justify-content: center;

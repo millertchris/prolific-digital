@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react";
 export default function Footer() {
     return (
        <>
-        <footer>
+        {/* <footer>
             <div className="wrapper">
                 <div className="row">
                     <a href="/"><img src="/logo.svg" alt="Prolific Digital"/></a>
@@ -18,7 +18,7 @@ export default function Footer() {
                     </nav>
                 </div>
             </div>
-        </footer>
+        </footer> */}
        </>
     )
 }

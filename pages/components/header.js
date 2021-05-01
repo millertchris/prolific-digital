@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import Head from 'next/head'
+import Image from 'next/image'
 
 // React Component
 import Burger from '@animated-burgers/burger-slip' 
@@ -38,11 +39,11 @@ export default function Header() {
                     <Burger Component="button" type="button" onClick={toggle} isOpen={isToggled} />
                     <nav>
                     <ul>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#" className="btn">Contact</a></li>
+                        <li><a href="portfolio">Portfolio</a></li>
+                        {/* <li><a href="case-studies">Case Studies</a></li> */}
+                        <li><a href="services">Services</a></li>
+                        <li><a href="about-us">About us</a></li>
+                        <li><a href="contact" className="btn">Contact</a></li>
                     </ul>
                     </nav>
                 </div>

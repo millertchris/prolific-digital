@@ -273,7 +273,7 @@ export default function Home() {
     <>
       <Header />
         <main>
-          <div id="slide-1" className="block hero style-1 slide">
+          <section id="slide-1" className="block hero style-1 slide">
             <div className="wrapper">
               <div className="row">
                 <div className="col">
@@ -337,9 +337,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div id="slide-2" className="block hero style-2 content-right slide">
+          <section id="slide-2" className="block hero style-2 content-right slide">
             <div className="wrapper">
               <div className="row">
                 <div className="col">
@@ -354,9 +354,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div id="slide-3" className="block carousel style-1 slide">
+          <section id="slide-3" className="block carousel style-1 slide">
             <div className="wrapper">
               <div className="row">
                 <div className="col">
@@ -426,9 +426,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div id="slide-4" className="block hero style-2 content-left slide">
+          <section id="slide-4" className="block hero style-2 content-left slide">
             <div className="wrapper">
               <div className="row">
                 <div className="col">
@@ -442,9 +442,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div id="slide-5" className="block contact slide">
+          <section id="slide-5" className="block contact slide">
             <div className="wrapper">
               <div className="row">
                 <div className="col">
@@ -469,7 +469,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
         </main>
       <Footer />

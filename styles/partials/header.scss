@@ -1,5 +1,5 @@
 header {
-    position: absolute;
+    // position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -48,7 +48,7 @@ header {
     .burger {
         position: absolute;
         top: 30px;
-        right: 60px;
+        right: 20px;
         padding: 0;
         z-index: 9999;
         @media screen and (min-width: 900px) {
